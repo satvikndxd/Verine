@@ -1,0 +1,25 @@
+[project]
+name = "verine-nerve"
+version = "0.1.0"
+description = "VERINE NERVE — capability-level crisis compiler (synthetic, evidence-bounded prototype)"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.5",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "networkx>=3.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["verine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests"]
