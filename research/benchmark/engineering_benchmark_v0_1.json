@@ -1,0 +1,128 @@
+{
+  "benchmark": "verine_nerve_v0_1",
+  "fixture_id": "digital_payments_v1",
+  "seed": 20260824,
+  "tasks": [
+    {
+      "task_id": "B1",
+      "name": "Graph validates and replays deterministically",
+      "baseline": "hash and schema checks",
+      "status": "pass",
+      "detail": {
+        "run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
+        "graph_warnings": [
+          "Node node_fraud_ml_model has low observability (0.55); blast radius may be underestimated",
+          "Node node_vendor_support has low observability (0.4); blast radius may be underestimated",
+          "Node node_card_networks has low observability (0.5); blast radius may be underestimated"
+        ]
+      }
+    },
+    {
+      "task_id": "B2",
+      "name": "Simulator identifies affected nodes",
+      "baseline": "direct reachability (upper bound)",
+      "status": "pass",
+      "detail": {
+        "deterministic_affected": 12,
+        "reachability_upper_bound": 12,
+        "subset_of_upper_bound": true
+      }
+    },
+    {
+      "task_id": "B3",
+      "name": "Capacity-flow identifies bottleneck chain",
+      "baseline": "degree/centrality",
+      "status": "pass",
+      "detail": {
+        "bottleneck_nodes": [
+          "cap_digital_payments_authorization",
+          "node_identity_provider",
+          "node_cloud_region_primary"
+        ],
+        "bottleneck_edges": [
+          "edge_cap_idp",
+          "edge_idp_region"
+        ]
+      }
+    },
+    {
+      "task_id": "B4",
+      "name": "Monte Carlo quantifies uncertainty (quantile spread, not a point)",
+      "baseline": "point estimate",
+      "status": "pass",
+      "detail": {
+        "p10": 0.262028,
+        "median": 0.316346,
+        "p90": 0.355081,
+        "n_null": 0
+      }
+    },
+    {
+      "task_id": "B5",
+      "name": "Optimizer ranks only feasible containment sets",
+      "baseline": "greedy action ranking",
+      "status": "pass",
+      "detail": {
+        "chosen": [
+          "act_escalate_vendor_hotline",
+          "act_shift_traffic_secondary_region"
+        ],
+        "rejected_count": 31
+      }
+    },
+    {
+      "task_id": "B6",
+      "name": "Hidden-dependency scenario increases uncertainty",
+      "baseline": "complete graph",
+      "status": "pass",
+      "detail": {
+        "epistemic_full": 0.19,
+        "epistemic_hidden": 0.21
+      }
+    },
+    {
+      "task_id": "B7",
+      "name": "Model disagreement locates assumption conflicts with reasons",
+      "baseline": "ensemble average",
+      "status": "pass",
+      "detail": {
+        "overall_level": "material",
+        "areas": 4
+      }
+    },
+    {
+      "task_id": "B8",
+      "name": "Human finds critical dependency faster with the tool",
+      "baseline": "manual graph inspection",
+      "status": "pending",
+      "detail": {
+        "reason": "Requires human tabletop exercise (EXP-N006); results are never manufactured."
+      }
+    },
+    {
+      "task_id": "B9",
+      "name": "Case file replays byte-for-byte",
+      "baseline": "re-run comparison",
+      "status": "pass",
+      "detail": {
+        "replayed": true,
+        "hashes_match": true,
+        "expected_run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
+        "actual_run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
+        "graph_hash": "sha256:d356f95a0e6adaa658c69e7643bf981ee818e467539de03cd27d1518d1d291c1",
+        "scenario_hash": "sha256:8dbee76a31815c2b4f53707ef4dd1385ed3f5181e315e83d543c53b247d6e794",
+        "metrics_match": true
+      }
+    },
+    {
+      "task_id": "B10",
+      "name": "Output improves decision quality",
+      "baseline": "human-only tabletop exercise",
+      "status": "pending",
+      "detail": {
+        "reason": "Requires human tabletop exercise (EXP-N006); results are never manufactured."
+      }
+    }
+  ],
+  "note": "Engineering benchmarks over the synthetic fixture. B8/B10 stay pending until humans run them."
+}
