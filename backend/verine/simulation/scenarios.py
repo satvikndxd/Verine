@@ -64,5 +64,10 @@ class Scenario(BaseModel):
         return v
 
     def scenario_hash(self) -> str:
+        # Identity is the semantic inputs, not creation time or the id. This keeps
+        # two scenarios with identical inputs (e.g. re-built forks) hash-equal and
+        # therefore byte-for-byte replayable.
         payload = self.model_dump(mode="json")
+        payload.pop("created_at", None)
+        payload.pop("scenario_id", None)
         return hash_obj(payload)

@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.acme.001",
+      "properties": {
+        "id": "urn:oid:2.49.0.1.840.0.acme.001",
+        "event": "Severe Thunderstorm Warning",
+        "headline": "Severe Thunderstorm Warning for New York, NY",
+        "severity": "Severe",
+        "certainty": "Observed",
+        "urgency": "Immediate",
+        "sent": "2026-08-24T12:02:00Z",
+        "effective": "2026-08-24T12:02:00Z",
+        "onset": "2026-08-24T12:10:00Z",
+        "expires": "2026-08-24T15:00:00Z",
+        "areaDesc": "New York, NY; Kings, NY"
+      }
+    }
+  ]
+}

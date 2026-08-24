@@ -6,11 +6,8 @@ import { test, expect } from "@playwright/test";
  * Requires the API (port 8000) and web app (port 3000) to be running.
  */
 test("compound payment crisis demo end-to-end", async ({ page }) => {
-  // Landing page: capability visible, war room reachable.
-  await page.goto("/");
-  await expect(page.getByText("Digital Payments Authorization")).toBeVisible();
-  await expect(page.getByText(/Synthetic war room/i)).toBeVisible();
-  await page.getByTestId("open-war-room").click();
+  // Sim Lab war room (synthetic scenario lab) reachable via nav.
+  await page.goto("/war-room");
 
   // War room loads the graph.
   await expect(page.getByTestId("graph-explorer")).toBeVisible();

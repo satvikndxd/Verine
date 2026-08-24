@@ -24,6 +24,6 @@ test("war room is keyboard-navigable with labeled controls", async ({ page }) =>
   await scrubber.press("ArrowRight");
 
   // Landmarks: header nav links have accessible names.
-  await expect(page.getByRole("link", { name: "Case Files" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Cases" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Evidence" })).toBeVisible();
 });

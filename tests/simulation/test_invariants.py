@@ -2,7 +2,7 @@
 
 import copy
 
-from conftest import make_scenario
+from sim_helpers import make_scenario
 
 from verine.cases.runner import execute_scenario
 from verine.graph.snapshots import GraphSnapshot

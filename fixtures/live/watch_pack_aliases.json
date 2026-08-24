@@ -1,0 +1,13 @@
+{
+  "description": "Entity/geography bindings for the Digital Payments watch pack. Maps normalized signal entities to declared graph node ids. Partial matches are flagged review-required by the resolver.",
+  "aliases": {
+    "acme payment processor": "node_payment_processor",
+    "acme backup processor": "node_backup_processor",
+    "authorization api": "node_api_gateway",
+    "payment gateway": "node_payment_processor",
+    "acme": "node_payment_processor"
+  },
+  "geographies": [
+    {"name": "New York", "match_terms": ["new york"], "node_id": "node_datacenter_east"}
+  ]
+}
