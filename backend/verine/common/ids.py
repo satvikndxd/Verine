@@ -26,6 +26,15 @@ PREFIXES = {
     "action": "act",
     "graph": "graph",
     "experiment": "exp",
+    "credential": "cred",
+    "connector": "conn",
+    "signal": "sig",
+    "watch_pack": "wp",
+    "hypothesis": "hyp",
+    "shadow_edge": "shadow",
+    "fork": "fork",
+    "event": "evt",
+    "llm_request": "llmreq",
 }
 
 

@@ -1,4 +1,4 @@
-from conftest import make_scenario
+from sim_helpers import make_scenario
 
 from verine.cases.replay import replay_case
 from verine.cases.runner import execute_scenario
