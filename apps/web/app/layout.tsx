@@ -10,11 +10,12 @@ export const metadata: Metadata = {
 
 const nav = [
   { href: "/", label: "Launcher" },
-  { href: "/war-room", label: "War Room" },
-  { href: "/scenarios", label: "Scenarios" },
-  { href: "/cases", label: "Case Files" },
+  { href: "/live", label: "Live War Room" },
+  { href: "/watch-packs", label: "Watch Packs" },
+  { href: "/cases", label: "Cases" },
   { href: "/evidence", label: "Evidence" },
-  { href: "/experiments", label: "Experiments" },
+  { href: "/providers", label: "AI Providers" },
+  { href: "/war-room", label: "Sim Lab" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="border-b border-[var(--border)] bg-[var(--bg-panel)]">
           <div className="mx-auto flex max-w-[1500px] items-center gap-6 px-5 py-2.5">
             <Link href="/" className="text-sm font-bold tracking-[0.2em] text-[var(--text)]">
-              VERINE <span className="text-[var(--amber)]">NERVE</span>
+              VERINE
             </Link>
             <nav className="flex gap-4 text-[13px] text-[var(--text-dim)]">
               {nav.map((n) => (
