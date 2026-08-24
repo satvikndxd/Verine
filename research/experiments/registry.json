@@ -1,0 +1,59 @@
+{
+  "description": "Experiment registry. Every run records fixture, seed, model, and result. Results stay 'pending' until the test actually runs; nothing is manufactured.",
+  "experiments": [
+    {
+      "experiment_id": "EXP-N001",
+      "question": "Does the graph validate and replay deterministically (byte-for-byte)?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed 20260824",
+      "models": ["deterministic_propagation_v1", "capacity_flow_v1", "monte_carlo_v1", "reachability_v1"],
+      "result": "pass",
+      "evidence": "research/benchmark/engineering_benchmark_v0_1.json tasks B1, B9; tests/replay/test_replay.py"
+    },
+    {
+      "experiment_id": "EXP-N002",
+      "question": "Does a compound shock produce plausible monotone behavior and quantified uncertainty?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed 20260824, 100 MC replications",
+      "models": ["deterministic_propagation_v1", "monte_carlo_v1"],
+      "result": "pass",
+      "evidence": "research/benchmark/compound_results.json; tests/simulation/test_invariants.py"
+    },
+    {
+      "experiment_id": "EXP-N003",
+      "question": "Does the containment optimizer respect constraints and beat no-action on the compound case?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed 20260824",
+      "models": ["deterministic_propagation_v1"],
+      "result": "pass",
+      "evidence": "research/benchmark/containment.md; tests/unit/test_optimizer.py"
+    },
+    {
+      "experiment_id": "EXP-N004",
+      "question": "Is model disagreement interpretable (localized with reasons and next steps)?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed 20260824",
+      "models": ["deterministic_propagation_v1", "capacity_flow_v1", "monte_carlo_v1"],
+      "result": "pass",
+      "evidence": "research/benchmark/disagreement.md; benchmark task B7"
+    },
+    {
+      "experiment_id": "EXP-N005",
+      "question": "Do hidden dependencies increase reported uncertainty instead of silently disappearing?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed 20260824",
+      "models": ["deterministic_propagation_v1", "capacity_flow_v1"],
+      "result": "pass",
+      "evidence": "research/benchmark/hidden_dependency.md; benchmark task B6"
+    },
+    {
+      "experiment_id": "EXP-N006",
+      "question": "Do humans find bottlenecks faster / decide better with the war room than with a static dependency list?",
+      "fixture_version": "digital_payments_v1",
+      "seed_policy": "fixed seed per session, blinded conditions",
+      "models": ["all"],
+      "result": "pending",
+      "evidence": "Requires human tabletop exercise; protocol in research/experiments/EXP-N006-human-tabletop.md"
+    }
+  ]
+}

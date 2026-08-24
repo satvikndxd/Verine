@@ -1,0 +1,721 @@
+{
+  "description": "Evidence and assumption registry for the synthetic demo fixture. Everything here is simulated provenance for a synthetic graph.",
+  "evidence": [
+    {
+      "evidence_id": "ev_fixture_capability_001",
+      "label": "Capability definition (fixture)",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "path": "capability"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture definition of the Digital Payments Authorization capability. Authored for the demo; not observed from any real organization."
+    },
+    {
+      "evidence_id": "ev_node_api_gateway",
+      "label": "Node record: API Gateway",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_api_gateway"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_api_gateway (service). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_identity_provider",
+      "label": "Node record: Identity Provider",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_identity_provider"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_identity_provider (identity_provider). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_payment_processor",
+      "label": "Node record: Payment Processor",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_payment_processor"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_payment_processor (vendor). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_backup_processor",
+      "label": "Node record: Backup Payment Processor",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_backup_processor"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_backup_processor (vendor). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_fraud_service",
+      "label": "Node record: Fraud Scoring Service",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_fraud_service"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_fraud_service (service). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_fraud_ml_model",
+      "label": "Node record: Fraud ML Model",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_fraud_ml_model"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_fraud_ml_model (application). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_cloud_region_primary",
+      "label": "Node record: Cloud Region Primary",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_cloud_region_primary"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_cloud_region_primary (cloud_region). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_cloud_region_secondary",
+      "label": "Node record: Cloud Region Secondary",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_cloud_region_secondary"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_cloud_region_secondary (cloud_region). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_auth_database",
+      "label": "Node record: Authorization Database",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_auth_database"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_auth_database (data_store). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_message_queue",
+      "label": "Node record: Settlement Message Queue",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_message_queue"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_message_queue (queue). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_observability",
+      "label": "Node record: Observability Stack",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_observability"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_observability (service). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_payments_ops_team",
+      "label": "Node record: Payments Operations Team",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_payments_ops_team"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_payments_ops_team (team). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_oncall_engineer",
+      "label": "Node record: On-call Payments Engineer",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_oncall_engineer"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_oncall_engineer (person_role). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_vendor_support",
+      "label": "Node record: Processor Vendor Support Channel",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_vendor_support"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_vendor_support (process). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_runbook_failover",
+      "label": "Node record: Processor Failover Runbook",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_runbook_failover"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_runbook_failover (process). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_network_provider",
+      "label": "Node record: Network Provider",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_network_provider"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_network_provider (vendor). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_card_networks",
+      "label": "Node record: Card Networks",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_card_networks"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_card_networks (external_condition). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_hsm_cluster",
+      "label": "Node record: HSM Cluster",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_hsm_cluster"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_hsm_cluster (asset). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_backup_contract",
+      "label": "Node record: Backup Processor Contract",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_backup_contract"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_backup_contract (contract). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_node_datacenter_east",
+      "label": "Node record: Datacenter East",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "node_id": "node_datacenter_east"
+      },
+      "content_hash": null,
+      "statement": "Synthetic fixture record for node node_datacenter_east (facility). Capacity/recovery values are authored demo parameters."
+    },
+    {
+      "evidence_id": "ev_edge_cap_gateway",
+      "label": "Edge record: edge_cap_gateway",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_gateway"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_api_gateway (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_processor",
+      "label": "Edge record: edge_cap_processor",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_processor"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_payment_processor (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_idp",
+      "label": "Edge record: edge_cap_idp",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_idp"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_identity_provider (authenticates_with). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_fraud",
+      "label": "Edge record: edge_cap_fraud",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_fraud"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_fraud_service (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_db",
+      "label": "Edge record: edge_cap_db",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_db"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_auth_database (stores_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_queue",
+      "label": "Edge record: edge_cap_queue",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_queue"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_message_queue (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_ops",
+      "label": "Edge record: edge_cap_ops",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_ops"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_payments_ops_team (operated_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_cap_obs",
+      "label": "Edge record: edge_cap_obs",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_cap_obs"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency cap_digital_payments_authorization -> node_observability (monitored_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_gateway_region",
+      "label": "Edge record: edge_gateway_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_gateway_region"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_api_gateway -> node_cloud_region_primary (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_gateway_network",
+      "label": "Edge record: edge_gateway_network",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_gateway_network"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_api_gateway -> node_network_provider (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_idp_region",
+      "label": "Edge record: edge_idp_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_idp_region"
+      },
+      "content_hash": null,
+      "statement": "INFERRED dependency node_identity_provider -> node_cloud_region_primary (located_in), confidence 0.6. In the demo narrative this edge was inferred from shared-hosting hints, NOT confirmed by the counterparty. It must never render as confirmed."
+    },
+    {
+      "evidence_id": "ev_edge_idp_hsm",
+      "label": "Edge record: edge_idp_hsm",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_idp_hsm"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_identity_provider -> node_hsm_cluster (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_fraud_region",
+      "label": "Edge record: edge_fraud_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_fraud_region"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_fraud_service -> node_cloud_region_primary (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_fraud_model",
+      "label": "Edge record: edge_fraud_model",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_fraud_model"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_fraud_service -> node_fraud_ml_model (calls). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_fraud_db",
+      "label": "Edge record: edge_fraud_db",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_fraud_db"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_fraud_service -> node_auth_database (stores_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_processor_networks",
+      "label": "Edge record: edge_processor_networks",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_processor_networks"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payment_processor -> node_card_networks (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_processor_support",
+      "label": "Edge record: edge_processor_support",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_processor_support"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payment_processor -> node_vendor_support (communicates_through). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_backup_networks",
+      "label": "Edge record: edge_backup_networks",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_backup_networks"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_backup_processor -> node_card_networks (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_backup_region",
+      "label": "Edge record: edge_backup_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_backup_region"
+      },
+      "content_hash": null,
+      "statement": "INFERRED dependency node_backup_processor -> node_cloud_region_primary (located_in), confidence 0.5. In the demo narrative this edge was inferred from shared-hosting hints, NOT confirmed by the counterparty. It must never render as confirmed."
+    },
+    {
+      "evidence_id": "ev_edge_backup_contract",
+      "label": "Edge record: edge_backup_contract",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_backup_contract"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_backup_processor -> node_backup_contract (constrained_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_db_region",
+      "label": "Edge record: edge_db_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_db_region"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_auth_database -> node_cloud_region_primary (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_queue_region",
+      "label": "Edge record: edge_queue_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_queue_region"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_message_queue -> node_cloud_region_primary (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_queue_network",
+      "label": "Edge record: edge_queue_network",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_queue_network"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_message_queue -> node_network_provider (requires). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_region_dc",
+      "label": "Edge record: edge_region_dc",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_region_dc"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_cloud_region_primary -> node_datacenter_east (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_ops_oncall",
+      "label": "Edge record: edge_ops_oncall",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_ops_oncall"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payments_ops_team -> node_oncall_engineer (operated_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_ops_obs",
+      "label": "Edge record: edge_ops_obs",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_ops_obs"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payments_ops_team -> node_observability (monitored_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_ops_support",
+      "label": "Edge record: edge_ops_support",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_ops_support"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payments_ops_team -> node_vendor_support (communicates_through). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_ops_runbook",
+      "label": "Edge record: edge_ops_runbook",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_ops_runbook"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_payments_ops_team -> node_runbook_failover (recovers_through). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_runbook_contract",
+      "label": "Edge record: edge_runbook_contract",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_runbook_contract"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_runbook_failover -> node_backup_contract (constrained_by). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_edge_obs_region",
+      "label": "Edge record: edge_obs_region",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "edge_id": "edge_obs_region"
+      },
+      "content_hash": null,
+      "statement": "Declared dependency node_observability -> node_cloud_region_primary (located_in). In the demo narrative this edge is part of the sanitized dependency inventory; the underlying inventory itself is synthetic."
+    },
+    {
+      "evidence_id": "ev_incident_processor_latency",
+      "label": "Incident definition: Payment processor latency",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "incident_id": "inc_processor_latency"
+      },
+      "content_hash": null,
+      "statement": "Synthetic incident inc_processor_latency authored for the demo benchmark. All components carry evidence_status=simulated."
+    },
+    {
+      "evidence_id": "ev_incident_cloud_region",
+      "label": "Incident definition: Primary cloud region degradation",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "incident_id": "inc_cloud_region_degradation"
+      },
+      "content_hash": null,
+      "statement": "Synthetic incident inc_cloud_region_degradation authored for the demo benchmark. All components carry evidence_status=simulated."
+    },
+    {
+      "evidence_id": "ev_incident_vendor_support",
+      "label": "Incident definition: Vendor support channel unavailable",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "incident_id": "inc_vendor_support_unavailable"
+      },
+      "content_hash": null,
+      "statement": "Synthetic incident inc_vendor_support_unavailable authored for the demo benchmark. All components carry evidence_status=simulated."
+    },
+    {
+      "evidence_id": "ev_incident_compound",
+      "label": "Incident definition: Compound processor and region disruption",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "incident_id": "inc_compound_payment_crisis"
+      },
+      "content_hash": null,
+      "statement": "Synthetic incident inc_compound_payment_crisis authored for the demo benchmark. All components carry evidence_status=simulated."
+    },
+    {
+      "evidence_id": "ev_incident_hidden_dep",
+      "label": "Incident definition: Region stress revealing hidden shared dependency",
+      "epistemic_status": "simulated",
+      "source_uri": null,
+      "locator": {
+        "fixture": "digital_payments_capability.json",
+        "incident_id": "inc_hidden_shared_dependency"
+      },
+      "content_hash": null,
+      "statement": "Synthetic incident inc_hidden_shared_dependency authored for the demo benchmark. All components carry evidence_status=simulated."
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "asm_max_combination_v1",
+      "statement": "Concurrent impact channels combine by max, not sum.",
+      "epistemic_status": "hypothesis",
+      "supports": [
+        "deterministic_propagation_v1"
+      ]
+    },
+    {
+      "assumption_id": "asm_linear_recovery_v1",
+      "statement": "Nodes recover linearly over recovery_time_minutes after incident end.",
+      "epistemic_status": "hypothesis",
+      "supports": [
+        "deterministic_propagation_v1",
+        "monte_carlo_v1"
+      ]
+    },
+    {
+      "assumption_id": "asm_capacity_linear_v1",
+      "statement": "Edge impact scales linearly with criticality_weight and capacity_fraction.",
+      "epistemic_status": "hypothesis",
+      "supports": [
+        "deterministic_propagation_v1",
+        "capacity_flow_v1"
+      ]
+    },
+    {
+      "assumption_id": "asm_median_lag_v1",
+      "statement": "Deterministic model uses the median of each edge's declared lag interval.",
+      "epistemic_status": "hypothesis",
+      "supports": [
+        "deterministic_propagation_v1"
+      ]
+    },
+    {
+      "assumption_id": "asm_steady_state_flow_v1",
+      "statement": "Capacity-flow model treats the capability as a static flow network at peak stress; a business is not literally a flow network.",
+      "epistemic_status": "hypothesis",
+      "supports": [
+        "capacity_flow_v1"
+      ]
+    }
+  ]
+}

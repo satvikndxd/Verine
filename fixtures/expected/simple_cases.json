@@ -1,0 +1,28 @@
+{
+  "description": "Hand-authored expected outputs for simple propagation cases. Computed by hand from the documented v1 rules BEFORE running the engine; exact-match assertions.",
+  "case_single_edge": {
+    "setup": "cap_t (target 0.99, floor 0.5) -requires(w=0.8, cf=1.0, lag_median=5)-> node_a (recovery 30m). Incident: node_a unavailable, severity 0.5, duration 60m. Horizon 120m, step 5m.",
+    "hand_math": "node_a = 0.5 during [0,60], then linear decay over 30m. cap(t) = 0.8 * node_a(t-5).",
+    "node_a_series": {"0": 0.5, "55": 0.5, "60": 0.5, "65": 0.416667, "70": 0.333333, "75": 0.25, "80": 0.166667, "85": 0.083333, "90": 0.0},
+    "cap_series": {"0": 0.0, "5": 0.4, "65": 0.4, "70": 0.333334, "75": 0.266666, "80": 0.2, "85": 0.133334, "90": 0.066666, "95": 0.0},
+    "peak_node_a": 0.5,
+    "peak_cap": 0.4,
+    "first_impact_node_a": 0,
+    "first_impact_cap": 5,
+    "min_service_level": 0.594,
+    "breached_floor": false,
+    "recovery_time_minutes": 95,
+    "expected_service_loss_sl_hours": 0.5115
+  },
+  "case_full_substitute": {
+    "setup": "Same graph plus node_b substitute (substitutability 1.0, healthy) declared on the edge.",
+    "hand_math": "redundancy = 1.0 * (1 - 0) = 1.0, so impact_to_cap = 0.",
+    "peak_cap": 0.0
+  },
+  "case_action_damping": {
+    "setup": "Single-edge case plus action (capacity_effect 0.5, duration 0) on node_a scheduled at t=0.",
+    "hand_math": "node_a = 0.5 * (1 - 0.5) = 0.25 while active; cap = 0.8 * 0.25 = 0.2.",
+    "peak_node_a": 0.25,
+    "peak_cap": 0.2
+  }
+}

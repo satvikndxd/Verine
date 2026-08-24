@@ -1,0 +1,177 @@
+{
+  "fixture_id": "digital_payments_v1",
+  "description": "Synthetic demo fixture. Every value is authored for simulation; nothing describes a real organization.",
+  "graph_snapshot_id": "graph_demo_v1",
+  "capability": {
+    "capability_id": "cap_digital_payments_authorization",
+    "name": "Digital Payments Authorization",
+    "description": "Authorize a customer payment request",
+    "owner_role": "payments_operations",
+    "minimum_service_level": 0.70,
+    "target_service_level": 0.995,
+    "unit": "successful_authorizations_per_minute",
+    "criticality": "critical",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": null,
+    "evidence_ids": ["ev_fixture_capability_001"]
+  },
+  "nodes": [
+    {"node_id": "node_api_gateway", "node_type": "service", "name": "API Gateway", "criticality": "critical", "capacity": 5000, "capacity_unit": "requests_per_second", "recovery_time_minutes": 30, "substitutability": 0.0, "observability": 0.95, "epistemic_status": "observed", "evidence_ids": ["ev_node_api_gateway"]},
+    {"node_id": "node_identity_provider", "node_type": "identity_provider", "name": "Identity Provider", "criticality": "critical", "capacity": 3000, "capacity_unit": "auth_requests_per_second", "recovery_time_minutes": 45, "substitutability": 0.0, "observability": 0.9, "epistemic_status": "observed", "evidence_ids": ["ev_node_identity_provider"]},
+    {"node_id": "node_payment_processor", "node_type": "vendor", "name": "Payment Processor", "criticality": "critical", "capacity": 1000, "capacity_unit": "requests_per_second", "recovery_time_minutes": 120, "recovery_time_interval_minutes": {"low": 60, "median": 120, "high": 240}, "substitutability": 0.2, "observability": 0.85, "epistemic_status": "observed", "evidence_ids": ["ev_node_payment_processor"]},
+    {"node_id": "node_backup_processor", "node_type": "vendor", "name": "Backup Payment Processor", "criticality": "high", "capacity": 550, "capacity_unit": "requests_per_second", "recovery_time_minutes": 90, "substitutability": 0.55, "observability": 0.7, "epistemic_status": "observed", "evidence_ids": ["ev_node_backup_processor"]},
+    {"node_id": "node_fraud_service", "node_type": "service", "name": "Fraud Scoring Service", "criticality": "high", "capacity": 2000, "capacity_unit": "scores_per_second", "recovery_time_minutes": 40, "substitutability": 0.0, "observability": 0.9, "epistemic_status": "observed", "evidence_ids": ["ev_node_fraud_service"]},
+    {"node_id": "node_fraud_ml_model", "node_type": "application", "name": "Fraud ML Model", "criticality": "medium", "recovery_time_minutes": 60, "substitutability": 0.0, "observability": 0.55, "epistemic_status": "observed", "evidence_ids": ["ev_node_fraud_ml_model"]},
+    {"node_id": "node_cloud_region_primary", "node_type": "cloud_region", "name": "Cloud Region Primary", "criticality": "critical", "recovery_time_minutes": 90, "recovery_time_interval_minutes": {"low": 45, "median": 90, "high": 180}, "substitutability": 0.0, "observability": 0.9, "epistemic_status": "observed", "evidence_ids": ["ev_node_cloud_region_primary"]},
+    {"node_id": "node_cloud_region_secondary", "node_type": "cloud_region", "name": "Cloud Region Secondary", "criticality": "high", "recovery_time_minutes": 90, "substitutability": 0.5, "observability": 0.9, "epistemic_status": "observed", "evidence_ids": ["ev_node_cloud_region_secondary"]},
+    {"node_id": "node_auth_database", "node_type": "data_store", "name": "Authorization Database", "criticality": "critical", "capacity": 8000, "capacity_unit": "transactions_per_second", "recovery_time_minutes": 60, "substitutability": 0.0, "observability": 0.95, "epistemic_status": "observed", "evidence_ids": ["ev_node_auth_database"]},
+    {"node_id": "node_message_queue", "node_type": "queue", "name": "Settlement Message Queue", "criticality": "high", "capacity": 10000, "capacity_unit": "messages_per_second", "recovery_time_minutes": 30, "substitutability": 0.0, "observability": 0.85, "epistemic_status": "observed", "evidence_ids": ["ev_node_message_queue"]},
+    {"node_id": "node_observability", "node_type": "service", "name": "Observability Stack", "criticality": "medium", "recovery_time_minutes": 30, "substitutability": 0.0, "observability": 0.95, "epistemic_status": "observed", "evidence_ids": ["ev_node_observability"]},
+    {"node_id": "node_payments_ops_team", "node_type": "team", "name": "Payments Operations Team", "criticality": "high", "recovery_time_minutes": 120, "substitutability": 0.0, "observability": 0.8, "epistemic_status": "observed", "evidence_ids": ["ev_node_payments_ops_team"]},
+    {"node_id": "node_oncall_engineer", "node_type": "person_role", "name": "On-call Payments Engineer", "criticality": "high", "recovery_time_minutes": 60, "substitutability": 0.3, "observability": 0.8, "epistemic_status": "observed", "evidence_ids": ["ev_node_oncall_engineer"]},
+    {"node_id": "node_vendor_support", "node_type": "process", "name": "Processor Vendor Support Channel", "criticality": "medium", "recovery_time_minutes": 180, "substitutability": 0.1, "observability": 0.4, "epistemic_status": "observed", "evidence_ids": ["ev_node_vendor_support"]},
+    {"node_id": "node_runbook_failover", "node_type": "process", "name": "Processor Failover Runbook", "criticality": "high", "recovery_time_minutes": 30, "substitutability": 0.0, "observability": 0.7, "epistemic_status": "observed", "evidence_ids": ["ev_node_runbook_failover"]},
+    {"node_id": "node_network_provider", "node_type": "vendor", "name": "Network Provider", "criticality": "high", "recovery_time_minutes": 60, "substitutability": 0.25, "observability": 0.6, "epistemic_status": "observed", "evidence_ids": ["ev_node_network_provider"]},
+    {"node_id": "node_card_networks", "node_type": "external_condition", "name": "Card Networks", "criticality": "critical", "recovery_time_minutes": 120, "substitutability": 0.0, "observability": 0.5, "epistemic_status": "observed", "evidence_ids": ["ev_node_card_networks"]},
+    {"node_id": "node_hsm_cluster", "node_type": "asset", "name": "HSM Cluster", "criticality": "critical", "recovery_time_minutes": 90, "substitutability": 0.0, "observability": 0.85, "epistemic_status": "observed", "evidence_ids": ["ev_node_hsm_cluster"]},
+    {"node_id": "node_backup_contract", "node_type": "contract", "name": "Backup Processor Contract", "criticality": "medium", "recovery_time_minutes": 0, "substitutability": 0.0, "observability": 0.9, "epistemic_status": "observed", "evidence_ids": ["ev_node_backup_contract"]},
+    {"node_id": "node_datacenter_east", "node_type": "facility", "name": "Datacenter East", "criticality": "high", "recovery_time_minutes": 240, "substitutability": 0.0, "observability": 0.7, "epistemic_status": "observed", "evidence_ids": ["ev_node_datacenter_east"]}
+  ],
+  "edges": [
+    {"edge_id": "edge_cap_gateway", "from_node": "cap_digital_payments_authorization", "to_node": "node_api_gateway", "edge_type": "requires", "criticality_weight": 0.95, "capacity_fraction": 1.0, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 10}, "epistemic_status": "observed", "confidence": 0.98, "evidence_ids": ["ev_edge_cap_gateway"]},
+    {"edge_id": "edge_cap_processor", "from_node": "cap_digital_payments_authorization", "to_node": "node_payment_processor", "edge_type": "requires", "criticality_weight": 0.8, "capacity_fraction": 0.7, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 20}, "substitution_options": ["node_backup_processor"], "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_cap_processor"]},
+    {"edge_id": "edge_cap_idp", "from_node": "cap_digital_payments_authorization", "to_node": "node_identity_provider", "edge_type": "authenticates_with", "criticality_weight": 0.85, "capacity_fraction": 0.9, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_cap_idp"]},
+    {"edge_id": "edge_cap_fraud", "from_node": "cap_digital_payments_authorization", "to_node": "node_fraud_service", "edge_type": "requires", "criticality_weight": 0.5, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 5, "median": 10, "max": 30}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_cap_fraud"]},
+    {"edge_id": "edge_cap_db", "from_node": "cap_digital_payments_authorization", "to_node": "node_auth_database", "edge_type": "stores_in", "criticality_weight": 0.9, "capacity_fraction": 0.95, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "epistemic_status": "observed", "confidence": 0.97, "evidence_ids": ["ev_edge_cap_db"]},
+    {"edge_id": "edge_cap_queue", "from_node": "cap_digital_payments_authorization", "to_node": "node_message_queue", "edge_type": "requires", "criticality_weight": 0.6, "capacity_fraction": 0.5, "propagation_lag_minutes": {"min": 10, "median": 20, "max": 60}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_cap_queue"]},
+    {"edge_id": "edge_cap_ops", "from_node": "cap_digital_payments_authorization", "to_node": "node_payments_ops_team", "edge_type": "operated_by", "criticality_weight": 0.4, "capacity_fraction": 0.5, "propagation_lag_minutes": {"min": 30, "median": 60, "max": 180}, "epistemic_status": "observed", "confidence": 0.85, "evidence_ids": ["ev_edge_cap_ops"]},
+    {"edge_id": "edge_cap_obs", "from_node": "cap_digital_payments_authorization", "to_node": "node_observability", "edge_type": "monitored_by", "criticality_weight": 0.3, "capacity_fraction": 0.4, "propagation_lag_minutes": {"min": 15, "median": 30, "max": 90}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_cap_obs"]},
+    {"edge_id": "edge_gateway_region", "from_node": "node_api_gateway", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.9, "capacity_fraction": 0.9, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "substitution_options": ["node_cloud_region_secondary"], "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_gateway_region"]},
+    {"edge_id": "edge_gateway_network", "from_node": "node_api_gateway", "to_node": "node_network_provider", "edge_type": "requires", "criticality_weight": 0.7, "capacity_fraction": 0.8, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 10}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_gateway_network"]},
+    {"edge_id": "edge_idp_region", "from_node": "node_identity_provider", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.75, "capacity_fraction": 0.8, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "epistemic_status": "inferred", "confidence": 0.6, "evidence_ids": ["ev_edge_idp_region"]},
+    {"edge_id": "edge_idp_hsm", "from_node": "node_identity_provider", "to_node": "node_hsm_cluster", "edge_type": "requires", "criticality_weight": 0.6, "capacity_fraction": 0.7, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 20}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_idp_hsm"]},
+    {"edge_id": "edge_fraud_region", "from_node": "node_fraud_service", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.8, "capacity_fraction": 0.85, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_fraud_region"]},
+    {"edge_id": "edge_fraud_model", "from_node": "node_fraud_service", "to_node": "node_fraud_ml_model", "edge_type": "calls", "criticality_weight": 0.6, "capacity_fraction": 0.7, "propagation_lag_minutes": {"min": 5, "median": 15, "max": 45}, "epistemic_status": "observed", "confidence": 0.85, "evidence_ids": ["ev_edge_fraud_model"]},
+    {"edge_id": "edge_fraud_db", "from_node": "node_fraud_service", "to_node": "node_auth_database", "edge_type": "stores_in", "criticality_weight": 0.7, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 0, "median": 10, "max": 30}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_fraud_db"]},
+    {"edge_id": "edge_processor_networks", "from_node": "node_payment_processor", "to_node": "node_card_networks", "edge_type": "requires", "criticality_weight": 0.9, "capacity_fraction": 0.95, "propagation_lag_minutes": {"min": 0, "median": 10, "max": 30}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_processor_networks"]},
+    {"edge_id": "edge_processor_support", "from_node": "node_payment_processor", "to_node": "node_vendor_support", "edge_type": "communicates_through", "criticality_weight": 0.3, "capacity_fraction": 0.4, "propagation_lag_minutes": {"min": 60, "median": 120, "max": 360}, "epistemic_status": "observed", "confidence": 0.8, "evidence_ids": ["ev_edge_processor_support"]},
+    {"edge_id": "edge_backup_networks", "from_node": "node_backup_processor", "to_node": "node_card_networks", "edge_type": "requires", "criticality_weight": 0.9, "capacity_fraction": 0.95, "propagation_lag_minutes": {"min": 0, "median": 10, "max": 30}, "epistemic_status": "observed", "confidence": 0.85, "evidence_ids": ["ev_edge_backup_networks"]},
+    {"edge_id": "edge_backup_region", "from_node": "node_backup_processor", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.5, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 0, "median": 10, "max": 30}, "epistemic_status": "inferred", "confidence": 0.5, "evidence_ids": ["ev_edge_backup_region"]},
+    {"edge_id": "edge_backup_contract", "from_node": "node_backup_processor", "to_node": "node_backup_contract", "edge_type": "constrained_by", "criticality_weight": 0.4, "capacity_fraction": 0.5, "propagation_lag_minutes": {"min": 0, "median": 0, "max": 0}, "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_backup_contract"]},
+    {"edge_id": "edge_db_region", "from_node": "node_auth_database", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.85, "capacity_fraction": 0.9, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 20}, "substitution_options": ["node_cloud_region_secondary"], "epistemic_status": "observed", "confidence": 0.95, "evidence_ids": ["ev_edge_db_region"]},
+    {"edge_id": "edge_queue_region", "from_node": "node_message_queue", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.8, "capacity_fraction": 0.85, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 20}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_queue_region"]},
+    {"edge_id": "edge_queue_network", "from_node": "node_message_queue", "to_node": "node_network_provider", "edge_type": "requires", "criticality_weight": 0.5, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 15}, "epistemic_status": "observed", "confidence": 0.85, "evidence_ids": ["ev_edge_queue_network"]},
+    {"edge_id": "edge_region_dc", "from_node": "node_cloud_region_primary", "to_node": "node_datacenter_east", "edge_type": "located_in", "criticality_weight": 0.9, "capacity_fraction": 1.0, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 30}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_region_dc"]},
+    {"edge_id": "edge_ops_oncall", "from_node": "node_payments_ops_team", "to_node": "node_oncall_engineer", "edge_type": "operated_by", "criticality_weight": 0.6, "capacity_fraction": 0.7, "propagation_lag_minutes": {"min": 15, "median": 30, "max": 90}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_ops_oncall"]},
+    {"edge_id": "edge_ops_obs", "from_node": "node_payments_ops_team", "to_node": "node_observability", "edge_type": "monitored_by", "criticality_weight": 0.5, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 10, "median": 20, "max": 60}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_ops_obs"]},
+    {"edge_id": "edge_ops_support", "from_node": "node_payments_ops_team", "to_node": "node_vendor_support", "edge_type": "communicates_through", "criticality_weight": 0.45, "capacity_fraction": 0.5, "propagation_lag_minutes": {"min": 30, "median": 60, "max": 240}, "epistemic_status": "observed", "confidence": 0.85, "evidence_ids": ["ev_edge_ops_support"]},
+    {"edge_id": "edge_ops_runbook", "from_node": "node_payments_ops_team", "to_node": "node_runbook_failover", "edge_type": "recovers_through", "criticality_weight": 0.5, "capacity_fraction": 0.6, "propagation_lag_minutes": {"min": 10, "median": 30, "max": 90}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_ops_runbook"]},
+    {"edge_id": "edge_runbook_contract", "from_node": "node_runbook_failover", "to_node": "node_backup_contract", "edge_type": "constrained_by", "criticality_weight": 0.5, "capacity_fraction": 0.5, "propagation_lag_minutes": {"min": 0, "median": 0, "max": 0}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_runbook_contract"]},
+    {"edge_id": "edge_obs_region", "from_node": "node_observability", "to_node": "node_cloud_region_primary", "edge_type": "located_in", "criticality_weight": 0.6, "capacity_fraction": 0.7, "propagation_lag_minutes": {"min": 0, "median": 5, "max": 20}, "epistemic_status": "observed", "confidence": 0.9, "evidence_ids": ["ev_edge_obs_region"]}
+  ],
+  "actions": [
+    {"action_id": "act_failover_backup_processor", "name": "Fail over to backup payment processor", "action_type": "reroute", "target_nodes": ["node_payment_processor"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 35000, "duration_minutes": 45, "required_roles": ["payments_operations", "engineering_on_call"], "capacity_effect": 0.55, "reversibility": 0.8, "collateral_risk": 0.15, "evidence_status": "fixture_action", "feasibility_constraints": ["backup_contract_active"], "side_effects": ["settlement reconciliation backlog for rerouted transactions"]},
+    {"action_id": "act_shift_traffic_secondary_region", "name": "Shift traffic to secondary cloud region", "action_type": "reroute", "target_nodes": ["node_cloud_region_primary"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 20000, "duration_minutes": 60, "required_roles": ["engineering_on_call"], "capacity_effect": 0.5, "reversibility": 0.7, "collateral_risk": 0.2, "evidence_status": "fixture_action", "feasibility_constraints": [], "side_effects": ["increased latency for region-pinned sessions"]},
+    {"action_id": "act_enable_fraud_fallback_rules", "name": "Enable static fraud fallback rules", "action_type": "degrade_gracefully", "target_nodes": ["node_fraud_service"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 5000, "duration_minutes": 15, "required_roles": ["payments_operations"], "capacity_effect": 0.6, "reversibility": 0.9, "collateral_risk": 0.25, "evidence_status": "fixture_action", "feasibility_constraints": [], "side_effects": ["higher fraud false-negative rate while active"]},
+    {"action_id": "act_queue_backpressure", "name": "Apply settlement queue backpressure", "action_type": "degrade_gracefully", "target_nodes": ["node_message_queue"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 2000, "duration_minutes": 10, "required_roles": ["engineering_on_call"], "capacity_effect": 0.4, "reversibility": 0.95, "collateral_risk": 0.1, "evidence_status": "fixture_action", "feasibility_constraints": [], "side_effects": ["delayed settlement confirmation"]},
+    {"action_id": "act_escalate_vendor_hotline", "name": "Escalate via vendor emergency hotline", "action_type": "communicate", "target_nodes": ["node_vendor_support"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 1000, "duration_minutes": 30, "required_roles": ["payments_operations"], "capacity_effect": 0.3, "reversibility": 1.0, "collateral_risk": 0.0, "evidence_status": "fixture_action", "feasibility_constraints": [], "side_effects": []},
+    {"action_id": "act_manual_authorization_process", "name": "Activate manual authorization process", "action_type": "manual_process", "target_nodes": ["cap_digital_payments_authorization"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 60000, "duration_minutes": 90, "required_roles": ["payments_operations", "treasury"], "capacity_effect": 0.35, "reversibility": 0.6, "collateral_risk": 0.35, "evidence_status": "fixture_action", "feasibility_constraints": ["manual_process_staffed"], "side_effects": ["authorization latency in minutes, not seconds"]},
+    {"action_id": "act_emergency_capacity_purchase", "name": "Purchase emergency processor capacity", "action_type": "scale", "target_nodes": ["node_payment_processor"], "affected_capabilities": ["cap_digital_payments_authorization"], "cost": 90000, "duration_minutes": 120, "required_roles": ["engineering_on_call"], "capacity_effect": 0.3, "reversibility": 0.5, "collateral_risk": 0.1, "evidence_status": "fixture_action", "feasibility_constraints": [], "side_effects": ["contract overage fees"]}
+  ],
+  "incidents": [
+    {
+      "incident_id": "inc_processor_latency",
+      "name": "Payment processor latency",
+      "incident_type": "single",
+      "onset_at": "2026-08-24T09:00:00Z",
+      "duration_minutes": 180,
+      "severity": 0.6,
+      "components": [
+        {"target_node_id": "node_payment_processor", "mode": "latency", "severity": 0.6, "severity_interval": {"low": 0.45, "median": 0.6, "high": 0.75}, "duration_minutes": 180, "duration_interval_minutes": {"low": 120, "median": 180, "high": 300}, "evidence_status": "simulated"}
+      ],
+      "evidence_ids": ["ev_incident_processor_latency"]
+    },
+    {
+      "incident_id": "inc_cloud_region_degradation",
+      "name": "Primary cloud region degradation",
+      "incident_type": "single",
+      "onset_at": "2026-08-24T09:00:00Z",
+      "duration_minutes": 120,
+      "severity": 0.45,
+      "components": [
+        {"target_node_id": "node_cloud_region_primary", "mode": "capacity_reduction", "severity": 0.45, "severity_interval": {"low": 0.3, "median": 0.45, "high": 0.65}, "duration_minutes": 120, "duration_interval_minutes": {"low": 60, "median": 120, "high": 240}, "evidence_status": "simulated"}
+      ],
+      "evidence_ids": ["ev_incident_cloud_region"]
+    },
+    {
+      "incident_id": "inc_vendor_support_unavailable",
+      "name": "Vendor support channel unavailable",
+      "incident_type": "single",
+      "onset_at": "2026-08-24T09:00:00Z",
+      "duration_minutes": 240,
+      "severity": 0.8,
+      "components": [
+        {"target_node_id": "node_vendor_support", "mode": "unavailable", "severity": 0.8, "severity_interval": {"low": 0.6, "median": 0.8, "high": 0.95}, "duration_minutes": 240, "duration_interval_minutes": {"low": 120, "median": 240, "high": 480}, "evidence_status": "simulated"}
+      ],
+      "evidence_ids": ["ev_incident_vendor_support"]
+    },
+    {
+      "incident_id": "inc_compound_payment_crisis",
+      "name": "Compound processor and region disruption",
+      "incident_type": "compound",
+      "onset_at": "2026-08-24T09:00:00Z",
+      "duration_minutes": 480,
+      "severity": 0.75,
+      "components": [
+        {"target_node_id": "node_payment_processor", "mode": "latency", "severity": 0.75, "severity_interval": {"low": 0.6, "median": 0.75, "high": 0.9}, "duration_minutes": 180, "duration_interval_minutes": {"low": 120, "median": 180, "high": 300}, "evidence_status": "simulated"},
+        {"target_node_id": "node_cloud_region_primary", "mode": "capacity_reduction", "severity": 0.7, "severity_interval": {"low": 0.5, "median": 0.7, "high": 0.85}, "duration_minutes": 150, "duration_interval_minutes": {"low": 90, "median": 150, "high": 270}, "onset_offset_minutes": 15, "evidence_status": "simulated"},
+        {"target_node_id": "node_vendor_support", "mode": "unavailable", "severity": 0.8, "severity_interval": {"low": 0.6, "median": 0.8, "high": 0.95}, "duration_minutes": 240, "duration_interval_minutes": {"low": 120, "median": 240, "high": 470}, "evidence_status": "simulated"}
+      ],
+      "evidence_ids": ["ev_incident_compound"]
+    },
+    {
+      "incident_id": "inc_hidden_shared_dependency",
+      "name": "Region stress revealing hidden shared dependency",
+      "incident_type": "single",
+      "onset_at": "2026-08-24T09:00:00Z",
+      "duration_minutes": 180,
+      "severity": 0.55,
+      "components": [
+        {"target_node_id": "node_cloud_region_primary", "mode": "capacity_reduction", "severity": 0.55, "severity_interval": {"low": 0.4, "median": 0.55, "high": 0.7}, "duration_minutes": 180, "duration_interval_minutes": {"low": 120, "median": 180, "high": 300}, "evidence_status": "simulated"}
+      ],
+      "evidence_ids": ["ev_incident_hidden_dep"]
+    }
+  ],
+  "scenario_presets": [
+    {
+      "preset_id": "preset_known_topology_compound",
+      "name": "Compound crisis, known topology",
+      "incident_id": "inc_compound_payment_crisis",
+      "hidden_edge_ids": [],
+      "description": "All dependencies visible to the models."
+    },
+    {
+      "preset_id": "preset_incomplete_topology_compound",
+      "name": "Compound crisis, incomplete topology",
+      "incident_id": "inc_compound_payment_crisis",
+      "hidden_edge_ids": ["edge_idp_region", "edge_backup_region"],
+      "description": "Inferred shared-region dependencies hidden from the models; observability risk must rise."
+    },
+    {
+      "preset_id": "preset_hidden_shared_dependency",
+      "name": "Hidden shared dependency reveal",
+      "incident_id": "inc_hidden_shared_dependency",
+      "hidden_edge_ids": ["edge_backup_region"],
+      "description": "Two apparently independent processors share an inferred region dependency."
+    }
+  ],
+  "default_constraints": {
+    "budget": 100000,
+    "deadline_minutes": 120,
+    "minimum_service_level": 0.70,
+    "available_roles": ["payments_operations", "engineering_on_call"],
+    "max_collateral_risk": 0.30,
+    "facts": ["backup_contract_active"]
+  },
+  "default_seed": 20260824
+}

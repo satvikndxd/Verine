@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+:root {
+  /* Ops-room palette: dark graphite, warm white, restrained accents */
+  --bg: #14161a;
+  --bg-panel: #1b1e24;
+  --bg-inset: #22262e;
+  --border: #2e333d;
+  --text: #ece9e2;
+  --text-dim: #9a978f;
+  --amber: #d9a441;
+  --red: #cf5c4f;
+  --blue: #5b8dbe;   /* observed evidence */
+  --violet: #9b7fc7; /* simulated / model result */
+  --gray: #6b7280;   /* unknown */
+  --green: #6faa7d;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "tnum";
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.inset {
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.label-observed { color: var(--blue); }
+.label-inferred { color: var(--amber); }
+.label-simulated { color: var(--violet); }
+.label-unknown { color: var(--gray); }
+
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  letter-spacing: 0.03em;
+}
+
+.react-flow__attribution { display: none; }
+
+input[type="range"] { accent-color: var(--amber); }
