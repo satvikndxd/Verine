@@ -155,11 +155,13 @@ def run_propagation(
     order = _topo_order(all_ids, snapshot, hidden)
 
     def delayed_value(nid: str, t: int, lag: float, current_step: int) -> float:
+        # history[0] is the initial state; state at step s lives at history[s + 1].
         src_step = min(current_step - 1, int((t - lag) // step_minutes))
         if src_step < 0:
             return 0.0
         h = history[nid]
-        return h[src_step] if src_step < len(h) else h[-1]
+        idx = src_step + 1
+        return h[idx] if idx < len(h) else h[-1]
 
     for step_idx in range(n_steps):
         t = step_idx * step_minutes
@@ -201,7 +203,8 @@ def run_propagation(
                     sub_meta = node_meta.get(sub)
                     if sub_meta is None:
                         continue
-                    sub_deg = history[sub][step_idx - 1] if step_idx > 0 else 0.0
+                    # Previous step's state: history[step_idx] (history[0] = initial state).
+                    sub_deg = history[sub][step_idx] if step_idx > 0 else 0.0
                     redundancy = max(redundancy, sub_meta.substitutability * (1.0 - sub_deg))
                 impact = e.criticality_weight * src_deg * e.capacity_fraction * (1.0 - redundancy)
                 if impact > best_prop:
