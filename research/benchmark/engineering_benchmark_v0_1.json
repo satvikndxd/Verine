@@ -9,7 +9,7 @@
       "baseline": "hash and schema checks",
       "status": "pass",
       "detail": {
-        "run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
+        "run_hash": "sha256:b8cf5a4967656ed6d1766d473f9305d9d2110a44405f91e77e05e6b9d0e7ee22",
         "graph_warnings": [
           "Node node_fraud_ml_model has low observability (0.55); blast radius may be underestimated",
           "Node node_vendor_support has low observability (0.4); blast radius may be underestimated",
@@ -107,10 +107,10 @@
       "detail": {
         "replayed": true,
         "hashes_match": true,
-        "expected_run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
-        "actual_run_hash": "sha256:9e47d8c3e81a9fd6a347e2117d0f6eaf5cb9d3f429797e5461a7a92b8f20034f",
+        "expected_run_hash": "sha256:b8cf5a4967656ed6d1766d473f9305d9d2110a44405f91e77e05e6b9d0e7ee22",
+        "actual_run_hash": "sha256:b8cf5a4967656ed6d1766d473f9305d9d2110a44405f91e77e05e6b9d0e7ee22",
         "graph_hash": "sha256:d356f95a0e6adaa658c69e7643bf981ee818e467539de03cd27d1518d1d291c1",
-        "scenario_hash": "sha256:8dbee76a31815c2b4f53707ef4dd1385ed3f5181e315e83d543c53b247d6e794",
+        "scenario_hash": "sha256:fb0d23afde8353bc5825d14393ee6a3ac46602197c6c8946d639892567eba4bc",
         "metrics_match": true
       }
     },
